@@ -1,0 +1,12 @@
+<h1> Individual Questions</h1>
+
+<h3><%= @question.question_name %></h3>
+<h6> By: <%= @question.user_id %></h6>
+<p><%= @question.description %></p>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<h2>Answers Beeeeelow</h2>
+<% @answers.each do |a| %>
+<h4><%= a.user_id %> thinks he knows the answer...</h4>
+<p><%= a.answer %></p>
+<% end %>
