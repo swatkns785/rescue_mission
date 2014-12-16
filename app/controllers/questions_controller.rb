@@ -18,13 +18,14 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    #binding.pry
-    @question_edit = Question.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def update
-    @question_edit = Question.update_attributes(question_params)
-    if @question.save
+
+    @question = Question.find(params[:id])
+
+    if @question.update_attributes(question_params)
       redirect_to questions_path(@question[:id])
     else
       render :edit
