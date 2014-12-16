@@ -13,6 +13,7 @@
 <% @answers.each do |a| %>
 <h4><%= a.user_id %> thinks they knows the answer...</h4>
 <p><%= render_markdown(a.answer) %></p>
+<hr/>
 <% end %>
 
 <div>&nbsp;</div>

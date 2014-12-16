@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to questions_path(@question[:id])
+      redirect_to question_path(@question[:id])
     else
       render :new
     end
@@ -30,18 +30,20 @@ class QuestionsController < ApplicationController
     else
       render :edit
     end
+
   end
 
   def show
     @question = Question.find(params[:id])
     @answers = Answer.where question_id: params[:id]
+    @answers = @answers.order("created_at DESC").all
   end
 
   def destroy
 
     @question = Question.find(params[:id])
     @answers = Answer.where question_id: params[:id]
-    
+
     @answers.each do |answer|
       answer.destroy
     end
