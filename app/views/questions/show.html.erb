@@ -2,19 +2,23 @@
 
 <h3><%= @question.question_name %></h3>
 <h6> By: <%= @question.user_id %></h6>
-<p><%= @question.description %></p>
+<p><%= render_markdown(@question.description) %></p>
 <div>&nbsp;</div>
 <%= link_to "Edit this question", edit_question_path(@question) %>
 
 
 <div>&nbsp;</div>
-<h2>Answers Beeeeelow</h2>
+
+<h2>Answers Below</h2>
 <% @answers.each do |a| %>
-<h4><%= a.user_id %> thinks he knows the answer...</h4>
-<p><%= a.answer %></p>
+<h4><%= a.user_id %> thinks they knows the answer...</h4>
+<p><%= render_markdown(a.answer) %></p>
 <% end %>
 
 <div>&nbsp;</div>
 
 <%= link_to "Answer this question", new_question_answer_path(@question) %>
 <div>&nbsp;</div>
+
+
+<%= link_to "Delete this question", question_path(@question), method: :delete %>

@@ -37,6 +37,22 @@ class QuestionsController < ApplicationController
     @answers = Answer.where question_id: params[:id]
   end
 
+  def destroy
+
+    @question = Question.find(params[:id])
+    @answers = Answer.where question_id: params[:id]
+    
+    @answers.each do |answer|
+      answer.destroy
+    end
+
+    @question.destroy
+
+
+    flash[:notice] = "Question deleted."
+    redirect_to questions_path
+  end
+
   private
 
   def question_params

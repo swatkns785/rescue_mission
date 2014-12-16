@@ -1,5 +1,7 @@
 <h1>QUESTIONS!</h1>
 
+<%= link_to "Click here to ask a question", new_question_path %>
+
 <% @questions.each do |question| %>
 <h3><%= link_to question.question_name, question_path(question.id) %></h3>
 <h6> by ID:<%= question.user_id %></h6>
