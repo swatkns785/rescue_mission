@@ -17,6 +17,20 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def edit
+    #binding.pry
+    @question_edit = Question.find(params[:id])
+  end
+
+  def update
+    @question_edit = Question.update_attributes(question_params)
+    if @question.save
+      redirect_to questions_path(@question[:id])
+    else
+      render :edit
+    end
+  end
+
   def show
     @question = Question.find(params[:id])
     @answers = Answer.where question_id: params[:id]

@@ -4,6 +4,7 @@
 <h6> By: <%= @question.user_id %></h6>
 <p><%= @question.description %></p>
 <div>&nbsp;</div>
+<%= link_to "Edit this question", edit_question_path(@question) %>
 <div>&nbsp;</div>
 <h2>Answers Beeeeelow</h2>
 <% @answers.each do |a| %>
@@ -14,3 +15,4 @@
 <div>&nbsp;</div>
 
 <%= link_to "Answer this question", new_question_answer_path(@question) %>
+<div>&nbsp;</div>
