@@ -10,3 +10,7 @@
 <h4><%= a.user_id %> thinks he knows the answer...</h4>
 <p><%= a.answer %></p>
 <% end %>
+
+<div>&nbsp;</div>
+
+<%= link_to "Answer this question", new_question_answer_path(@question) %>
