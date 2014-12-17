@@ -1,5 +1,7 @@
 class AnswersController < ApplicationController
 
+  before_filter :authenticate_user!, except: [:show] #does not allow user to answer question unless logged in
+
   def show
     @answers = Answer.find(:question_id)
   end
@@ -21,7 +23,7 @@ class AnswersController < ApplicationController
     else
       render :new
     end
-    
+
   end
 
   private
