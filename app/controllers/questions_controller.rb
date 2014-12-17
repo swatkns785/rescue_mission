@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
     else
       render :new
     end
-    
+
   end
 
   def edit
@@ -57,8 +57,8 @@ class QuestionsController < ApplicationController
 
       @answers.each do |answer|
         answer.destroy
-
       end
+
       @question.destroy
 
       flash[:notice] = "Question deleted."

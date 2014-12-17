@@ -10,5 +10,6 @@ class Answer < ActiveRecord::Base
   presence: true
 
   validates :answer,
-  presence: true
+  presence: true,
+  length: { minimum: 50, message: "Your answer must be at least %{count} characters in length."}
 end

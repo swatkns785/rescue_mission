@@ -1,5 +1,10 @@
-<h1>Create A New Question<h1>
-
+<h1>Create A New Question</h1>
+<% if @question.errors.any? %>
+<% @question.errors.full_messages.each do |error| %>
+<%= error %>
+<div>&nbsp;</div>
+<% end %>
+<% end %>
 <%= form_for @question do |f| %>
   <div>
     <%= f.label :question_name %>

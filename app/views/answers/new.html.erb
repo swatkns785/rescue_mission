@@ -1,9 +1,11 @@
 <h3>Answer the question below.</h3>
+<% if @answer.errors.any? %>
+  <% @answer.errors.full_messages.each do |error| %>
+    <%= error %>
+    <div>&nbsp;</div>
+  <% end %>
+<% end %>
 <%= form_for [@question, @answer] do |f| %>
-<div>
-  <%= f.label :user_id %>
-  <%= f.text_field :user_id %>
-</div>
 <div>
   <%= f.label :answer %>
   <%= f.text_area :answer %>

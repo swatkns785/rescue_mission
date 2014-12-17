@@ -37,4 +37,8 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   #Ensures you have default url options in environment.
+
+  config.assets.precompile += %w( vendor/modernizr.js )
+  #configures asset pipeline for JS and CSS
+
 end
