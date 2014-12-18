@@ -31,12 +31,17 @@ class QuestionsController < ApplicationController
 
     @question = Question.find(params[:id])
 
-    if @question.update_attributes(question_params)
-      redirect_to questions_path(@question[:id])
+    if @question.user_id != current_user.id
+      flash[:notice] = "You must be the question creator to update this question."
+      redirect_to questions_path(@question)
     else
-      render :edit
-    end
 
+      if @question.update_attributes(question_params)
+        redirect_to questions_path(@question[:id])
+      else
+        render :edit
+      end
+    end
   end
 
   def show
